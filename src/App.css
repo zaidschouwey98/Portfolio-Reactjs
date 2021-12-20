@@ -853,6 +853,7 @@ z-index: -1;
 
 .language-icons{
 height: 50px;
+opacity: 0;
 }
 .container{
 padding: 80px;

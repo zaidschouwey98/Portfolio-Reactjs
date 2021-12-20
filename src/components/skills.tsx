@@ -5,8 +5,6 @@ const ScrollMagic = require('scrollmagic');
 
 function Skills() {
     const controller = new ScrollMagic.Controller();
-   
-    console.log("tst")
     
     new ScrollMagic.Scene({
         triggerElement: "#about",
@@ -15,31 +13,41 @@ function Skills() {
         offset: 50 // move trigger to center of element
       })
         .on("progress", (scroll:object) => {
-            var animateProgressPhp = anime({
+            anime({
+                targets: '.language-icons',
+                opacity:'1',
+                easing:'easeInOutQuad',
+              });
+            var tl = anime.timeline({
+                easing: 'linear'
+              });
+              
+              tl.add({
                 targets: '#progress-php',
                 width: '80%',
                 easing: 'linear',
-            });
-            var animateProgressJs = anime({
+              },)
+              .add({
                 targets: '#progress-js',
                 width: '75%',
                 easing: 'linear',
-            });
-            var animateProgressRuby = anime({
+              },"-=500")
+              .add({
                 targets: '#progress-ruby',
                 width: '50%',
                 easing: 'linear',
-            });
-            var animateProgressUnity = anime({
+              },"-=500")
+              .add({
                 targets: '#progress-unity',
                 width: '72%',
                 easing: 'linear',
-            });
-            var animateProgressReact = anime({
+              },"-=500")
+              .add({
                 targets: '#progress-react',
                 width: '83%',
                 easing: 'linear',
-            });
+              },"-=500")
+            
         })
         .addIndicators()
         .addTo(controller);
